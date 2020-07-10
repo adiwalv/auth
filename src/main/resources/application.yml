@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/milky-way
+    username: postgres
+    password: milkyway
+    driver-class-name: org.postgresql.Driver
+  main:
+    allow-bean-definition-overriding: true
