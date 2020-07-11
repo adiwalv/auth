@@ -1,8 +1,10 @@
+bezkoder:
+  app:
+    jwtExpirationMs: 86400000
+    jwtSecret: bezKoderSecretKey
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/auth
-    username: vikas
-    password: root123
-    driver-class-name: org.postgresql.Driver
-  main:
-    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      database: auth
+      host: localhost
+      port: 27017
