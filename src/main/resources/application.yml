@@ -1,10 +1,4 @@
-bezkoder:
-  app:
-    jwtExpirationMs: 86400000
-    jwtSecret: bezKoderSecretKey
 spring:
   data:
     mongodb:
-      database: auth
-      host: localhost
-      port: 27017
+      database: security
