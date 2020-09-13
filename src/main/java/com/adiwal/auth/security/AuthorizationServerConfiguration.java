@@ -1,5 +1,7 @@
 package com.adiwal.auth.security;
 
+import com.adiwal.auth.service.AuthClientDetailsService;
+import com.adiwal.auth.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -26,6 +27,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 	@Autowired
 	private CustomUserDetailsService userDetailsService;
 
+	@Autowired
+	private AuthClientDetailsService authClientDetailsService;
+
+
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.allowFormAuthenticationForClients()
@@ -34,13 +39,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory()
-				.withClient("vikas")
-				.secret(passwordEncoder.encode("vikas"))
-				.authorizedGrantTypes("password", "client_credentials", "refresh_token")
-				.scopes("all")
-				.accessTokenValiditySeconds(3600)
-				.refreshTokenValiditySeconds(86400);
+		clients.withClientDetails(authClientDetailsService);
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 	@Bean
 	public TokenStore tokenStore() {
-		return new InMemoryTokenStore();
+		return new MongoTokenStore();
 	}
 
 }
