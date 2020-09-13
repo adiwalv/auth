@@ -68,7 +68,7 @@ public class DefaultConfig {
         }
         if (this.authClientRepository.findByClientId(userClient).isEmpty()) {
             AuthClientDetails browserClientDetails = new AuthClientDetails();
-            browserClientDetails.setClientId(rootClient);
+            browserClientDetails.setClientId(userClient);
             browserClientDetails.setClientSecret(passwordEncoder.encode(userClientPassword));
             browserClientDetails.setScopes("ui");
             browserClientDetails.setGrantTypes("refresh_token,password");

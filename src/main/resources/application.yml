@@ -10,5 +10,5 @@ config:
   client:
     rootClient: server
     rootClientPassword: server123
-    userClient: server
-    userClientPassword: server123
+    userClient: client
+    userClientPassword: client123
