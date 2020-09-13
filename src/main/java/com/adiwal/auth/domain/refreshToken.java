@@ -7,7 +7,7 @@ import org.springframework.security.oauth2.common.OAuth2RefreshToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 
 @Document
-public class MongoRefreshToken {
+public class refreshToken {
 
     public static final String TOKEN_ID = "tokenId";
 

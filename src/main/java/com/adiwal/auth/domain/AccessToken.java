@@ -7,7 +7,7 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 
 @Document
-public class MongoAccessToken {
+public class AccessToken {
 
     @Id
     private String id;
