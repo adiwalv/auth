@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface MongoAccessTokenRepository extends MongoRepository<MongoAccessToken, String> {
     Optional<MongoAccessToken> findByTokenId(String tokenId);
+    Optional<MongoAccessToken> findByRefreshToken(String refreshToken);
+    Optional<MongoAccessToken> findByAuthenticationId(String authenticationId);
 }
