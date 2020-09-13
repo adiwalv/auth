@@ -2,3 +2,13 @@ spring:
   data:
     mongodb:
       database: security
+
+config:
+  user:
+    superUser: vikas
+    superUserPassword: root123
+  client:
+    rootClient: server
+    rootClientPassword: server123
+    userClient: server
+    userClientPassword: server123
