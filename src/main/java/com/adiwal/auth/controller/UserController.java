@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping
-    @PreAuthorize("#oauth2.hasScope('server')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public UserDto createUser(@Valid @RequestBody UserRegistrationDto userRegistration) {
         User savedUser = userService.create(toUser(userRegistration));
         return toDto(savedUser);

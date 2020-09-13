@@ -7,13 +7,7 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 
 @Document
-public class MongoAccessToken {
-
-    public static final String TOKEN_ID = "tokenId";
-    public static final String REFRESH_TOKEN = "refreshToken";
-    public static final String AUTHENTICATION_ID = "authenticationId";
-    public static final String CLIENT_ID = "clientId";
-    public static final String USER_NAME = "username";
+public class AccessToken {
 
     @Id
     private String id;
