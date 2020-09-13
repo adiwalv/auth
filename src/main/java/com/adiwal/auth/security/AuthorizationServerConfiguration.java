@@ -28,14 +28,15 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.allowFormAuthenticationForClients(); //For authenticating client using the form parameters instead of basic auth 
+		security.allowFormAuthenticationForClients()
+		.checkTokenAccess("isAuthenticated()"); //For authenticating client using the form parameters instead of basic auth
 	}
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-				.withClient("rokin-client")
-				.secret(passwordEncoder.encode("secret"))
+				.withClient("vikas")
+				.secret(passwordEncoder.encode("vikas"))
 				.authorizedGrantTypes("password", "client_credentials", "refresh_token")
 				.scopes("all")
 				.accessTokenValiditySeconds(3600)
