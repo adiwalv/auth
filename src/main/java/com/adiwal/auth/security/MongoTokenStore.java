@@ -2,6 +2,7 @@ package com.adiwal.auth.security;
 
 import com.adiwal.auth.domain.MongoAccessToken;
 import com.adiwal.auth.domain.MongoRefreshToken;
+import com.adiwal.auth.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -37,7 +38,7 @@ public class MongoTokenStore implements TokenStore {
     @Override
     public OAuth2Authentication readAuthentication(String token) {
         Query query = new Query();
-        query.addCriteria(Criteria.where(MongoAccessToken.TOKEN_ID).is(extractTokenKey(token)));
+        query.addCriteria(Criteria.where(AppConstants.TOKEN_ID).is(extractTokenKey(token)));
 
         MongoAccessToken mongoAccessToken = mongoTemplate.findOne(query, MongoAccessToken.class);
         return mongoAccessToken != null ? mongoAccessToken.getAuthentication() : null;
@@ -69,7 +70,7 @@ public class MongoTokenStore implements TokenStore {
     @Override
     public OAuth2AccessToken readAccessToken(String tokenValue) {
         Query query = new Query();
-        query.addCriteria(Criteria.where(MongoAccessToken.TOKEN_ID).is(extractTokenKey(tokenValue)));
+        query.addCriteria(Criteria.where(AppConstants.TOKEN_ID).is(extractTokenKey(tokenValue)));
 
         MongoAccessToken mongoAccessToken = mongoTemplate.findOne(query, MongoAccessToken.class);
         return mongoAccessToken != null ? mongoAccessToken.getToken() : null;
@@ -78,7 +79,7 @@ public class MongoTokenStore implements TokenStore {
     @Override
     public void removeAccessToken(OAuth2AccessToken oAuth2AccessToken) {
         Query query = new Query();
-        query.addCriteria(Criteria.where(MongoAccessToken.TOKEN_ID).is(extractTokenKey(oAuth2AccessToken.getValue())));
+        query.addCriteria(Criteria.where(AppConstants.TOKEN_ID).is(extractTokenKey(oAuth2AccessToken.getValue())));
         mongoTemplate.remove(query, MongoAccessToken.class);
     }
 
@@ -119,7 +120,7 @@ public class MongoTokenStore implements TokenStore {
     @Override
     public void removeAccessTokenUsingRefreshToken(OAuth2RefreshToken refreshToken) {
         Query query = new Query();
-        query.addCriteria(Criteria.where(MongoAccessToken.REFRESH_TOKEN).is(extractTokenKey(refreshToken.getValue())));
+        query.addCriteria(Criteria.where(AppConstants.REFRESH_TOKEN).is(extractTokenKey(refreshToken.getValue())));
         mongoTemplate.remove(query, MongoAccessToken.class);
     }
 
@@ -129,7 +130,7 @@ public class MongoTokenStore implements TokenStore {
         String authenticationId = authenticationKeyGenerator.extractKey(authentication);
 
         Query query = new Query();
-        query.addCriteria(Criteria.where(MongoAccessToken.AUTHENTICATION_ID).is(authenticationId));
+        query.addCriteria(Criteria.where(AppConstants.AUTHENTICATION_ID).is(authenticationId));
 
         MongoAccessToken mongoAccessToken = mongoTemplate.findOne(query, MongoAccessToken.class);
         if (mongoAccessToken != null) {
@@ -145,13 +146,13 @@ public class MongoTokenStore implements TokenStore {
     @Override
     public Collection<OAuth2AccessToken> findTokensByClientIdAndUserName(String clientId, String username) {
         return findTokensByCriteria(
-                Criteria.where(MongoAccessToken.CLIENT_ID).is(clientId)
-                        .and(MongoAccessToken.USER_NAME).is(username));
+                Criteria.where(AppConstants.CLIENT_ID).is(clientId)
+                        .and(AppConstants.USER_NAME).is(username));
     }
 
     @Override
     public Collection<OAuth2AccessToken> findTokensByClientId(String clientId) {
-        return findTokensByCriteria(Criteria.where(MongoAccessToken.CLIENT_ID).is(clientId));
+        return findTokensByCriteria(Criteria.where(AppConstants.CLIENT_ID).is(clientId));
     }
 
     private Collection<OAuth2AccessToken> findTokensByCriteria(Criteria criteria) {
