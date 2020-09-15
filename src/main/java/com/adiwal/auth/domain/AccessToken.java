@@ -1,6 +1,6 @@
 package com.adiwal.auth.domain;
 
-import com.adiwal.auth.util.SerializableObjectConverter;
+import com.adiwal.commons.util.SerializableObjectConverter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

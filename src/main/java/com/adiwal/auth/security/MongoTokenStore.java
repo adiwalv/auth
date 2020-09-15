@@ -4,7 +4,7 @@ import com.adiwal.auth.domain.AccessToken;
 import com.adiwal.auth.domain.RefreshToken;
 import com.adiwal.auth.repository.AccessTokenRepository;
 import com.adiwal.auth.repository.RefreshTokenRepository;
-import com.adiwal.auth.util.AppConstants;
+import com.adiwal.commons.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

@@ -1,10 +1,10 @@
 package com.adiwal.auth.defaultsettings;
 
 import com.adiwal.auth.domain.AuthClientDetails;
-import com.adiwal.auth.domain.User;
-import com.adiwal.auth.enums.Authorities;
 import com.adiwal.auth.repository.AuthClientRepository;
 import com.adiwal.auth.repository.UserRepository;
+import com.adiwal.commons.domain.User;
+import com.adiwal.commons.enums.Authorities;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

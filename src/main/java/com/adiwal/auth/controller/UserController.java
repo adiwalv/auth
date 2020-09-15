@@ -1,9 +1,9 @@
 package com.adiwal.auth.controller;
 
-import com.adiwal.auth.domain.User;
-import com.adiwal.auth.dto.UserDto;
-import com.adiwal.auth.dto.UserRegistrationDto;
 import com.adiwal.auth.service.UserService;
+import com.adiwal.commons.domain.User;
+import com.adiwal.commons.dto.UserDto;
+import com.adiwal.commons.dto.UserRegistrationDto;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

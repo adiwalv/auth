@@ -1,6 +1,6 @@
 package com.adiwal.auth.repository;
 
-import com.adiwal.auth.domain.User;
+import com.adiwal.commons.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

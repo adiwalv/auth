@@ -1,8 +1,8 @@
 package com.adiwal.auth.service;
 
-import com.adiwal.auth.domain.User;
-import com.adiwal.auth.enums.Authorities;
 import com.adiwal.auth.repository.UserRepository;
+import com.adiwal.commons.domain.User;
+import com.adiwal.commons.enums.Authorities;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
