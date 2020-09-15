@@ -33,7 +33,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.allowFormAuthenticationForClients()
+		security.allowFormAuthenticationForClients().tokenKeyAccess("permitAll()")
 		.checkTokenAccess("isAuthenticated()"); //For authenticating client using the form parameters instead of basic auth
 	}
 
