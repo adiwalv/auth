@@ -37,6 +37,9 @@ public class DefaultConfig {
     @Value("${config.client.userClientPassword}")
     private String userClientPassword;
 
+    @Value("${config.resetMongo}")
+    private boolean resetMongo;
+
     @Autowired
     UserRepository userRepository;
 
@@ -48,6 +51,14 @@ public class DefaultConfig {
 
     @PostConstruct
     public void init() {
+        if (resetMongo) {
+            userRepository.deleteAll();
+            authClientRepository.deleteAll();
+        }
+        createDefaultUsers();
+    }
+
+    public void createDefaultUsers () {
         if (this.userRepository.findByUsername(superUser).isEmpty()) {
             User user = new User();
             Set<Authorities> authorities = new HashSet<>();

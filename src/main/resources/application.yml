@@ -3,11 +3,12 @@ spring:
     mongodb:
       database: security
 config:
-  user:
-    superUser: vikas
-    superUserPassword: root123
-  client:
-    rootClient: server
-    rootClientPassword: server123
-    userClient: client
-    userClientPassword: client123
+  resetMongo: false
+#  user:
+#    superUser: vikas
+#    superUserPassword: root123
+#  client:
+#    rootClient: server
+#    rootClientPassword: server123
+#    userClient: client
+#    userClientPassword: client123
