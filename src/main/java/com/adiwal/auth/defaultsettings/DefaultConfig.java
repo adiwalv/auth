@@ -19,25 +19,25 @@ import java.util.Set;
 @Service
 public class DefaultConfig {
 
-    @Value("${config.user.superUser}")
+    @Value("${config.user.superuser}")
     private String superUser;
 
-    @Value("${config.user.superUserPassword}")
+    @Value("${config.user.superuserpassword}")
     private String superUserPassword;
 
-    @Value("${config.client.rootClient}")
+    @Value("${config.client.rootclient}")
     private String rootClient;
 
-    @Value("${config.client.rootClientPassword}")
+    @Value("${config.client.rootclientpassword}")
     private String rootClientPassword;
 
-    @Value("${config.client.userClient}")
+    @Value("${config.client.userclient}")
     private String userClient;
 
-    @Value("${config.client.userClientPassword}")
+    @Value("${config.client.userclientpassword}")
     private String userClientPassword;
 
-    @Value("${config.resetMongo}")
+    @Value("${config.resetmongo}")
     private boolean resetMongo;
 
     @Autowired

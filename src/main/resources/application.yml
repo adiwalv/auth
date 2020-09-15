@@ -3,4 +3,4 @@ spring:
     mongodb:
       database: security
 config:
-  resetMongo: false
+  resetmongo: true
