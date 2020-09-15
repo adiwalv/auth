@@ -4,3 +4,11 @@ spring:
       database: security
 config:
   resetmongo: true
+  user:
+    superuser: vikas
+    superuserpassword: root123
+  client:
+    rootclient: server
+    rootclientpassword: server123
+    userclient: client
+    userclientpassword: client123
