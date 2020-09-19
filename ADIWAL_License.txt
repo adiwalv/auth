@@ -1,0 +1,2 @@
+© ${owner} (${email}) ${project.inceptionYear}. All rights reserved. 
+CONFIDENTIAL AND PROPRIETARY INFORMATION OF VIKAS ADIWAL.
