@@ -66,7 +66,7 @@ public class DefaultConfig {
         if (this.userRepository.findByUsername(superUser).isEmpty()) {
             User user = new User();
             Set<Authorities> authorities = new HashSet<>();
-            authorities.add(Authorities.ROLE_USER);
+            authorities.add(Authorities.ROLE_ADMIN);
             user.setUsername(superUser);
             user.setPassword(passwordEncoder.encode(superUserPassword));
             user.setActivated(true);
