@@ -64,6 +64,7 @@ public class DefaultConfig {
 
     public void createDefaultUsers () {
         if (this.userRepository.findByUsername(superUser).isEmpty()) {
+            log.info("Trying creating user : {}", superUser);
             User user = new User();
             Set<Authorities> authorities = new HashSet<>();
             authorities.add(Authorities.ROLE_ADMIN);
@@ -72,22 +73,27 @@ public class DefaultConfig {
             user.setActivated(true);
             user.setAuthorities(authorities);
             this.userRepository.save(user);
+            log.info("User {} created!", superUser);
         }
         if (this.authClientRepository.findByClientId(rootClient).isEmpty()) {
+            log.info("Trying creating client : {}", rootClient);
             AuthClientDetails browserClientDetails = new AuthClientDetails();
             browserClientDetails.setClientId(rootClient);
             browserClientDetails.setClientSecret(passwordEncoder.encode(rootClientPassword));
             browserClientDetails.setScopes("server");
             browserClientDetails.setGrantTypes("refresh_token,password");
             authClientRepository.save(browserClientDetails);
+            log.info("Client {} created!", rootClient);
         }
         if (this.authClientRepository.findByClientId(userClient).isEmpty()) {
+            log.info("Trying creating client : {}", userClient);
             AuthClientDetails browserClientDetails = new AuthClientDetails();
             browserClientDetails.setClientId(userClient);
             browserClientDetails.setClientSecret(passwordEncoder.encode(userClientPassword));
             browserClientDetails.setScopes("ui");
             browserClientDetails.setGrantTypes("refresh_token,password");
             authClientRepository.save(browserClientDetails);
+            log.info("Client {} created!", userClient);
         }
     }
 
