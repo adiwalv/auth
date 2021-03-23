@@ -7,6 +7,7 @@ config:
   user:
     superuser: vikas
     superuserpassword: root123
+    superuseremail: adiwalv@gmail.com
   client:
     rootclient: server
     rootclientpassword: server123

@@ -29,6 +29,9 @@ public class DefaultConfig {
     @Value("${config.user.superuserpassword}")
     private String superUserPassword;
 
+    @Value("${config.user.superuseremail}")
+    private String superuseremail;
+
     @Value("${config.client.rootclient}")
     private String rootClient;
 
@@ -69,6 +72,7 @@ public class DefaultConfig {
             Set<Authorities> authorities = new HashSet<>();
             authorities.add(Authorities.ROLE_ADMIN);
             user.setUsername(superUser);
+            user.setEmail(superuseremail);
             user.setPassword(passwordEncoder.encode(superUserPassword));
             user.setActivated(true);
             user.setAuthorities(authorities);

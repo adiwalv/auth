@@ -7,6 +7,7 @@ package com.adiwal.auth.service;
 import com.adiwal.auth.repository.UserRepository;
 import com.adiwal.commons.domain.User;
 import com.adiwal.commons.enums.Authorities;
+import com.adiwal.commons.exceptions.AdiwalAuthException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
     private void throwIfUsernameExists(String username) {
         Optional<User> existingUser = userRepository.findByUsername(username);
         existingUser.ifPresent((user) -> {
-            throw new IllegalArgumentException("User not available");
+            throw new AdiwalAuthException("Username not available");
         });
     }
 
