@@ -16,7 +16,7 @@
 	</parent>
 
 	<artifactId>auth</artifactId>
-	<version>0.0.7</version>
+	<version>0.0.8</version>
 	<name>auth</name>
 	<description>Authentication Service For Adiwal.com</description>
 
